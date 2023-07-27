@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%block principal%}
+<section class="bloqueprincipal">	
+	<h2>Arte y cultura</h2>
+	{%if form%}
+	<h2>Agregar</h2>
+	<div class="NewUsr">
+		<form action="" method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+			<button>Enviar</button>
+		</form>
+	</div>
+	
+	{%else%}
+	<h1>Lista de actividades</h1>
+	<a href="arte/add">Nueva actividad</a>
+	</br>
+		{%for a in actividadesarte %}
+		<div class="rotate-in-center" style="background-color: white; width: 200px; height: 200px; margin: auto; display: inline-block; margin: 5px; ">
+			<em>{{a.nombre}}</em> 
+			<p>{{a.descripcion}}</p>
+		</div>
+		{%endfor%}
+	</ul>
+	{%endif%}
+</section>
+{%endblock%}

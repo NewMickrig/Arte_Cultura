@@ -1,0 +1,24 @@
+{%extends "base.html"%}
+{%block principal%}
+<section class="bloqueprincipal">
+	<h2>Deporte</h2>
+	{%if form%}
+	<h2>Agregar</h2>
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+	<button>Enviar</button>
+	</form>
+	{%else%}
+	<h1>Lista de actividades</h1>
+	<a href="deporte/add">Nueva actividad</a>
+	</br>
+		{%for a in actividadesdeportes %}
+		<div class="rotate-in-center" style="background-color: white; width: 200px; height: 200px; margin: auto; display: inline-block; margin: 5px; ">
+			<em>{{a.nombre}}</em> 
+			<p>{{a.descripcion}}</p>
+		</div>
+		{%endfor%}
+	{%endif%}
+</section>
+{%endblock%}

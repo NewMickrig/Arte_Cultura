@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block principal%}
+	<div class="NewUsr">
+		<form action="" method="POST">
+			{%csrf_token%}
+			{{formulario.as_p}}
+			<button>Ingresar</button>
+		</form>
+		<a href="/agregar/usuario">Nuevo Usuario</a>
+	</div>
+	
+{%endblock%}

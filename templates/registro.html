@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+{%block principal%}
+<section class="bloqueprincipal">
+	<h2>Registro</h2>
+	{%if form%}
+	<div class="NewUsr">
+		<h2>Agregar</h2>
+		<form action="" method="POST">
+			{% csrf_token %}
+			{{form.as_p}}
+		<button>Enviar</button>
+	</form>
+	</div>
+	{%else%}
+	<h1>Lista de Registros</h1>
+	<a href="registro/add">Nueva Persona</a>
+	</br>
+		{%for a in Personas %}
+		<div class="rotate-in-center" style="background-color: white; width: 200px; height: 200px; margin: auto; display: inline-block; margin: 5px; ">
+			<em>{{a.nombre}} {{a.apellidos}}</em> 
+			<p>Correo: {{a.correo}} </br>Sexo:{{a.sexo}}</p>
+		</div>
+		{%endfor%}
+	
+	{%endif%}
+</section>
+{%endblock%}

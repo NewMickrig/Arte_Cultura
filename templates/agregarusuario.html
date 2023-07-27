@@ -1,0 +1,13 @@
+{%extends "base.html"%}
+
+{%block principal%}
+<section class="bloqueprincipal">
+	<div class="NewUsr">
+		<form action="" method="POST">
+			{%csrf_token%}
+			{{formulario.as_p}}
+			<button>Ingresar</button>
+		</form>
+	</div>
+</section>
+{%endblock%}
